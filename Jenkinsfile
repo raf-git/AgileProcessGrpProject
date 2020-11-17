@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'im in'
+                sh 'python HelloPython.py'
             }
         }
     }
