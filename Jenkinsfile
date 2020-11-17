@@ -1,9 +1,14 @@
 pipeline {
     agent any
 
-    Stage('Build') {
-        step {
-            sh 'python -m py_compile HelloPython.py'
+    Stages{
+        stage('Build') {
+            steps {
+                sh 'python -m py_compile HelloPython.py'
+            }
         }
+
+
+
     }
 }
