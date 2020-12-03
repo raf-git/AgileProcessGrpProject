@@ -1,17 +1,18 @@
 pipeline {
 
-
+    agent none
 
     stages {
 
-        stage('build') {
+        stage('Build') {
             agent{
                 docker{
-                    image 'python:3.9'
+                    image 'python:2-alpine'
                 }
             }
             steps {
                 sh 'python HelloPython.py'
+                stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
     }
